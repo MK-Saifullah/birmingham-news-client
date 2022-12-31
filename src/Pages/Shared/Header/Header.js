@@ -1,15 +1,21 @@
-import React from 'react';
+import userEvent from '@testing-library/user-event';
+import React, { useContext } from 'react';
+import { Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { FaUser } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import  { AuthContext } from '../../../contexts/AuthProvider';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
 
 const Header = () => {
+    const {user, loading} = useContext(AuthContext)
     return (
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand href="#home">Birmingham News</Navbar.Brand>
+                    <Navbar.Brand><Link to="/">Birmingham News</Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
@@ -28,12 +34,22 @@ const Header = () => {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">More deets</Nav.Link>
+                        <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
                         <Nav.Link eventKey={2} href="#memes">
-                        Dank memes
+                            {
+                                user.photoURL?
+                                <Image 
+                                    src={user.photoURL} 
+                                    style ={{height: '20px'}} 
+                                    roundedCircle
+                                    ></Image>
+                                :
+                                <FaUser></FaUser>
+
+                            }
                         </Nav.Link>
                     </Nav>
-                    
+
                     <div className='d-lg-none'>
                         <LeftSideNav></LeftSideNav>
                     </div>
