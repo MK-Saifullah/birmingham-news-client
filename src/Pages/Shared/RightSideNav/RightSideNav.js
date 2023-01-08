@@ -9,11 +9,11 @@ import { GoogleAuthProvider } from 'firebase/auth';
 
 const RightSideNav = () => {
     // const [user, setUser] = useState({});
-    const {providerLogin, loading} = useContext(AuthContext);
+    const {googleProviderLogin, loading} = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
 
     const handleGoogleSignIn = () => {
-        providerLogin(googleProvider)
+        googleProviderLogin(googleProvider)
         .then(result => {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;

@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import React, { useContext } from 'react';
-import { Image } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -11,7 +11,17 @@ import  { AuthContext } from '../../../contexts/AuthProvider';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
 
 const Header = () => {
-    const {user, loading} = useContext(AuthContext)
+    const {user, loading, logOut} = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logOut()
+        .then( () =>{
+
+        })
+        .catch((error) => {
+            console.error(error);
+        })
+    }
     return (
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
@@ -34,13 +44,26 @@ const Header = () => {
                         </NavDropdown>
                     </Nav>
                     <Nav>
-                        <Nav.Link href="#deets">{user?.displayName}</Nav.Link>
+                        <>
+                            {
+                                user?.uid ? 
+                               <>
+                                <span>{user?.displayName}</span> 
+                                <Button variant= 'danger' onClick={handleLogout}>Logout</Button>
+                               </>
+                                :
+                                <>
+                                    <Link variant="secondary" to='/login' className='me-2'><Button variant="primary" type="submit">Login</Button></Link>
+                                    <Link variant="secondary" to='/register'><Button variant="primary" type="submit">Register</Button></Link>
+                                </>
+                            }
+                        </>
                         <Nav.Link eventKey={2} href="#memes">
                             {
-                                user.photoURL?
+                                user?.photoURL?
                                 <Image 
-                                    src={user.photoURL} 
-                                    style ={{height: '20px'}} 
+                                    src={user?.photoURL} 
+                                    style ={{height: '30px'}} 
                                     roundedCircle
                                     ></Image>
                                 :

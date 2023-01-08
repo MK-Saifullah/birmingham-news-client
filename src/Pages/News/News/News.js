@@ -6,7 +6,7 @@ import { FaStar } from 'react-icons/fa';
 
 const News = () => {
     const news = useLoaderData();
-    console.log(news);
+    // console.log(news);
     const {details, author, rating, title, category_id, image_url} = news;
     return (
         <Card className="">
