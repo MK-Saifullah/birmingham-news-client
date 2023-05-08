@@ -1,4 +1,4 @@
-import userEvent from '@testing-library/user-event';
+
 import React, { useContext } from 'react';
 import { Button, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
@@ -8,10 +8,12 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import  { AuthContext } from '../../../contexts/AuthProvider';
+import useTitle from '../../../hooks/useTitle';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
 
 const Header = () => {
     const {user, loading, logOut} = useContext(AuthContext)
+    useTitle('')
 
     const handleLogout = () => {
         logOut()
@@ -29,9 +31,9 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#features">All news</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
-                        <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
+                        {/* <Nav.Link href="#features">All news</Nav.Link> */}
+                        {/* <Nav.Link href="#pricing">Pricing</Nav.Link> */}
+                        {/* <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">
                             Another action
@@ -41,7 +43,7 @@ const Header = () => {
                         <NavDropdown.Item href="#action/3.4">
                             Separated link
                         </NavDropdown.Item>
-                        </NavDropdown>
+                        </NavDropdown> */}
                     </Nav>
                     <Nav>
                         <>

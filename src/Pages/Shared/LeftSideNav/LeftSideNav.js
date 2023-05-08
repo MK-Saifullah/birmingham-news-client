@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../../hooks/useTitle';
 
 const LeftSideNav = () => {
     const [categories, setCategories] = useState([]);
+    useTitle('category')
     useEffect(() => {
         fetch('https://birmingham-news-server.vercel.app/news-categories')
         .then(res => res.json())
