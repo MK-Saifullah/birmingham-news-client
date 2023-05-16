@@ -6,7 +6,7 @@ const Home = () => {
     const allNews = useLoaderData();
     return (
         <div>
-            <h2>This is home component: {allNews.length}</h2>
+            <h2>Total News: {allNews.length}</h2>
             {
                 allNews.map(news => <NewsSummaryCart
                     key={news._id}
