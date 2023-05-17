@@ -16,10 +16,10 @@ const LeftSideNav = () => {
     return (
         <div>
             <h2>Total articles: {categories.length}</h2>
-            <div>
+            <div className=''>
                 {
                     categories.map(category => <p key= {category.id}>
-                        <Link to={`/category/${category.id}`}><button className="btn btn-accent">{category.name}</button></Link>
+                        <Link to={`/category/${category.id}`}><button className="btn btn-success">{category.name}</button></Link>
                     </p>)
                 }
             </div>

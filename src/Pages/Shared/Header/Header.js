@@ -27,7 +27,7 @@ const Header = () => {
     return (
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
-                    <Navbar.Brand><Link to="/"><button type="" className='btn btn-success'>Birmingham News</button></Link></Navbar.Brand>
+                    <Navbar.Brand><Link to="/"><button type="" className='btn btn-primary'>Birmingham News</button></Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
@@ -55,8 +55,8 @@ const Header = () => {
                                </>
                                 :
                                 <>
-                                    <Link variant="secondary" to='/login' className='me-2'><Button variant="primary" type="submit">Login</Button></Link>
-                                    <Link variant="secondary" to='/register'><Button variant="primary" type="submit">Register</Button></Link>
+                                    <Link variant="secondary" to='/login' className='me-2'><Button variant="primary" type="submit" className='mb-2'>Login</Button></Link>
+                                    <Link variant="secondary" to='/register' className='me-2'><Button variant="primary" type="submit">Register</Button></Link>
                                 </>
                             }
                         </>

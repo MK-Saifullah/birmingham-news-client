@@ -61,10 +61,10 @@ const Login = () => {
                 <Form.Control name="password" type="password" placeholder="Password" required/>
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" className='mb-2'>
                 Login
             </Button>
-            <Link to='/register'> <Button variant="primary" type="submit">Register</Button></Link>
+            <Link to='/register'> <Button variant="primary" type="submit" className='mb-2'>Register</Button></Link>
            
             <div className='text-danger'>
                 {error}
